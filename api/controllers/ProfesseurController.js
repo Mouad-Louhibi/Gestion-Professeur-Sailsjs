@@ -40,6 +40,17 @@ module.exports = {
         }
     },
   
+//   list: async function (req, res) {
+//         try {
+//             const profs = await Professeur.find();
+//             res.send(req.profs)
+//         } catch (error) {
+//             console.log(error)
+//             sails.log.warn(error);
+//             return { error };
+//         }
+//     },
+  
   // profil: async function(req, res) {
   //   res.send(req.user)
   // },
