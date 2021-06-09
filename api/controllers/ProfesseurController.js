@@ -39,5 +39,9 @@ module.exports = {
             return { error };
         }
     },
+  
+  // profil: async function(req, res) {
+  //   res.send(req.user)
+  // },
 };
 
