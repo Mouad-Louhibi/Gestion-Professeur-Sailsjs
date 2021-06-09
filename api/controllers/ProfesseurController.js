@@ -21,38 +21,23 @@ module.exports = {
             }
             res.status(201);
             return res.send({
-                message: sails.__('prof_created'),
+                message: sails.__('Prof created successfully'),
                 data: prof
             });
         } catch (error) {
             return res.serverError(error);
         }
     },
-
-    list: async function () {
+  
+    list: async function (req, res) {
         try {
             const profs = await Professeur.find();
-            return { data: profs };
+            return res.send(profs)
         } catch (error) {
             console.log(error)
             sails.log.warn(error);
             return { error };
         }
     },
-  
-//   list: async function (req, res) {
-//         try {
-//             const profs = await Professeur.find();
-//             res.send(req.profs)
-//         } catch (error) {
-//             console.log(error)
-//             sails.log.warn(error);
-//             return { error };
-//         }
-//     },
-  
-  // profil: async function(req, res) {
-  //   res.send(req.user)
-  // },
 };
 
