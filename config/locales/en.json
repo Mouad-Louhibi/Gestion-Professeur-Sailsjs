@@ -2,5 +2,8 @@
 	"Welcome": "Welcome",
 	"A brand new app.": "A brand new app.",
 	"prof_created": "prof_created",
-	"Prof Found": "Prof Found"
+	"Prof Found": "Prof Found",
+	"Prof created successfully": "Prof created successfully",
+	"update.professeur": "update.professeur",
+	"Professeur Deleted Successfully": "Professeur Deleted Successfully"
 }
