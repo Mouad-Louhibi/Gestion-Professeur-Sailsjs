@@ -10,9 +10,14 @@
 
 module.exports.routes = {
 
+    // Professeur
     'POST /professeur' : 'ProfesseurController.create',
     'GET /professeur' : 'ProfesseurController.list',
     "PATCH /professeur/:id": "ProfesseurController.update",
     "DELETE /professeur/:id": "ProfesseurController.delete",
+
+    // Updated Professeur
+    'GET /edit-professeur' : 'UpdatedProfesseurController.list',
+    "PATCH /edit-professeur/:id": "UpdatedProfesseurController.update",
 
 };
