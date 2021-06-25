@@ -23,6 +23,7 @@ module.exports.routes = {
     // User
     'GET /user': 'UserController.show',
     'POST /user': 'UserController.create',
+    'DELETE /user/:id': 'UserController.delete',
     "POST /user/login": "UserController.login",
     "POST /user/register": "UserController.register",
 };

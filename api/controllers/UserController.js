@@ -71,29 +71,29 @@
     // },
 
     // Delete User
-    // delete: async function (req, res) {
-    //     if(req.user.id !== req.param('id')){
-    //         return res.forbidden({message:"vous n'avez pas le droit pour supprimer"})
-    //     }
-    //     try {
-    //         let userResource = await UserService.delete(req.param('id'));
-    //         if (userResource.error) {
-    //             return res.badRequest(userResource.error);
-    //         }
-    //         res.status(203);
-    //         return res.send({
-    //             message: sails.__('user_deleted')
-    //         });
-    //     } catch (error) {
-    //         return res.serverError(error);
-    //     }
-    // },
+    delete: async function (req, res) {
+        if(req.user.id !== req.param('id')){
+            return res.forbidden({message:"vous n'avez pas le droit pour supprimer"})
+        }
+        try {
+            let userResource = await User.delete(req.param('id'));
+            if (userResource.error) {
+                return res.badRequest(userResource.error);
+            }
+            res.status(203);
+            return res.send({
+                message: sails.__('user_deleted')
+            });
+        } catch (error) {
+            return res.serverError(error);
+        }
+    },
 
     // Signup User
     register: async function (req, res) {
         try {
             let { fullName, email, password } = req.allParams();
-            const token = await sails.helpers.strings.random('url-friendly');
+            const token = await sails.helpers.strings;
             let data = {
                 fullName,
                 email,
@@ -114,7 +114,7 @@
                     confirmLink: confirmLink,
                 }
             };
-            await sails.helpers.sendMail(sendMail);
+            // await sails.helpers.sendMail(sendMail);
             res.status(201);
             return res.send({message: sails.__(message.email) });
         } catch (error) {
