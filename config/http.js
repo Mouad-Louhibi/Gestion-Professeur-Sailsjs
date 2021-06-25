@@ -30,15 +30,15 @@ module.exports.http = {
     ***************************************************************************/
 
     order: [
-    //   'cookieParser',
-    //   'session',
+      //   'cookieParser',
+      //   'session',
       'bodyParser',
-    //   'compress',
-    //   'poweredBy',
+      //   'compress',
+      //   'poweredBy',
       'router',
-    //   'www',
-    //   'favicon',
-      'serveStatic',
+      //   'www',
+      //   'favicon',
+      // 'serveStatic',
     ],
 
 
