@@ -27,6 +27,6 @@ module.exports.bootstrap = async function() {
   // ]);
   // ```
 
-  await UpdatedProfesseur.create({ nom: 'Mouad', prenom: 'Louhibi', etat: 'Interne'});
+  // await UpdatedProfesseur.create({ nom: 'Mouad', prenom: 'Louhibi', etat: 'Interne'});
 
 };

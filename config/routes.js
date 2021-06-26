@@ -21,9 +21,9 @@ module.exports.routes = {
     "PATCH /edit-professeur/:id": "UpdatedProfesseurController.update",
 
     // User
-    'GET /user': 'UserController.show',
-    'POST /user': 'UserController.create',
-    'DELETE /user/:id': 'UserController.delete',
-    "POST /user/login": "UserController.login",
-    "POST /user/register": "UserController.register",
+    // 'GET /user': 'UserController.show',
+    // 'POST /user': 'UserController.create',
+    // 'DELETE /user/:id': 'UserController.delete',
+    // "POST /user/login": "UserController.login",
+    // "POST /user/register": "UserController.register",
 };
