@@ -6,7 +6,7 @@
  */
 
  module.exports = {
-    // GET ProfesseurS
+    // GET Professeur
     list: async function (req, res) {
         try {
             const profs = await UpdatedProfesseur.find();

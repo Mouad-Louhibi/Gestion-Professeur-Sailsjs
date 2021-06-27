@@ -13,17 +13,14 @@ module.exports.routes = {
     // Professeur
     'GET /professeur': 'ProfesseurController.list',
     'POST /professeur': 'ProfesseurController.create',
-    "PATCH /professeur/:id": "ProfesseurController.update",
-    "DELETE /professeur/:id": "ProfesseurController.delete",
+    'PATCH /professeur/:id': 'ProfesseurController.update',
+    'DELETE /professeur/:id': 'ProfesseurController.delete',
 
     // Updated Professeur
     'GET /edit-professeur': 'UpdatedProfesseurController.list',
-    "PATCH /edit-professeur/:id": "UpdatedProfesseurController.update",
+    'PATCH /edit-professeur/:id': 'UpdatedProfesseurController.update',
 
     // User
-    // 'GET /user': 'UserController.show',
-    // 'POST /user': 'UserController.create',
-    // 'DELETE /user/:id': 'UserController.delete',
-    // "POST /user/login": "UserController.login",
-    // "POST /user/register": "UserController.register",
+    'POST /user': 'UserController.create',
+    'POST /user/login': 'UserController.login',
 };

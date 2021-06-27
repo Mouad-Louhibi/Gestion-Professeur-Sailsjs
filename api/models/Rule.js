@@ -15,10 +15,6 @@
         collection: 'user',
         via: 'rules'
       },
-      permissions: {
-        collection: 'permission',
-        via: 'rules'
-      }
     },
   
   };

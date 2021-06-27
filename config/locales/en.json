@@ -9,5 +9,9 @@
 	"professeur Not Found": "professeur Not Found",
 	"Professeur Created Successfully": "Professeur Created Successfully",
 	"Professeur Updated Successfully": "Professeur Updated Successfully",
-	"user_shown": "user_shown"
+	"user_shown": "user_shown",
+	"[object Object]": "[object Object]",
+	"User Created Successfully": "User Created Successfully",
+	"User Logged Successfully": "User Logged Successfully",
+	"Password Incorrect": "Password Incorrect"
 }

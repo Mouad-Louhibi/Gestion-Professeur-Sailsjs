@@ -14,7 +14,10 @@
       prenom:{
         type:'string'
       },
-      etat:{
+      email:{
+        type:'string'
+      },
+      password:{
         type:'string'
       },
       rules: {

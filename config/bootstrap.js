@@ -1,32 +1,29 @@
-/**
- * Seed Function
- * (sails.config.bootstrap)
- *
- * A function that runs just before your Sails app gets lifted.
- * > Need more flexibility?  You can also create a hook.
- *
- * For more information on seeding your app with fake data, check out:
- * https://sailsjs.com/config/bootstrap
- */
+// /**
+//  * Seed Function
+//  * (sails.config.bootstrap)
+//  *
+//  * A function that runs just before your Sails app gets lifted.
+//  * > Need more flexibility?  You can also create a hook.
+//  *
+//  * For more information on seeding your app with fake data, check out:
+//  * https://sailsjs.com/config/bootstrap
+//  */
 
-module.exports.bootstrap = async function() {
+// module.exports.bootstrap = async function () {
+//     // Create Update Prof
+//     await UpdatedProfesseur.create({ nom: 'Mouad', prenom: 'Louhibi', etat: 'Interne' });
 
-  // By convention, this is a good place to set up fake data during development.
-  //
-  // For example:
-  // ```
-  // // Set up fake development data (or if we already have some, avast)
-  // if (await User.count() > 0) {
-  //   return;
-  // }
-  //
-  // await User.createEach([
-  //   { emailAddress: 'ry@example.com', fullName: 'Ryan Dahl', },
-  //   { emailAddress: 'rachael@example.com', fullName: 'Rachael Shaw', },
-  //   // etc.
-  // ]);
-  // ```
+//     // Create Rules
+//     await Rule.create({ nom: 'SUPER_USER' })
+//     await Rule.create({ nom: 'USER' })
 
-  // await UpdatedProfesseur.create({ nom: 'Mouad', prenom: 'Louhibi', etat: 'Interne'});
+//     // Create Default User
+//     await User.create({ nom: 'Oumama', prenom: 'Elhassouny', email: 'oumamaelhassouny@usmba.ac.ma', password: 'Oumama2021$' })
 
-};
+//     // Rules
+//     const ruleSuperUser = await Rule.find({ where: { nom: 'SUPER_USER' } });
+//     const defaultUser = await User.find({ where: { nom: 'Oumama' } });
+
+//     // Add Rule To User
+//     await User.addToCollection(defaultUser[0].id, 'rules', ruleSuperUser[0].id)
+// };
