@@ -23,4 +23,5 @@ module.exports.routes = {
     // User
     'POST /user': 'UserController.create',
     'POST /user/login': 'UserController.login',
+    'GET /user/logout': 'UserController.logout',
 };

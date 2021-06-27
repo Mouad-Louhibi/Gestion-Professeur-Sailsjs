@@ -13,5 +13,6 @@
 	"[object Object]": "[object Object]",
 	"User Created Successfully": "User Created Successfully",
 	"User Logged Successfully": "User Logged Successfully",
-	"Password Incorrect": "Password Incorrect"
+	"Password Incorrect": "Password Incorrect",
+	"User Logged Out Successfully": "User Logged Out Successfully"
 }

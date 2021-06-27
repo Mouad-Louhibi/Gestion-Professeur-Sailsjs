@@ -33,7 +33,7 @@ module.exports = {
     login: async function (req, res) {
         const { email, password } = req.allParams();
         try {
-            let user = await User.find({ where: { email: email } });
+            let user = await User.find({ where: { email: email } }).populate('rules');
 
             if (user.error) {
                 return res.badRequest(user.error);
@@ -45,10 +45,48 @@ module.exports = {
                 })
             }
 
+            let loginUser = await LoginUser.find()
+
+            const id = loginUser.id
+            const nom = user[0].nom
+            const prenom = user[0].prenom
+            const emailUser = user[0].email
+            const etat = 'OnLine'
+            const rules = user[0].rules[0].nom
+
+            await LoginUser.update({ where: { id: id } }).set({ nom, prenom, email: emailUser, etat, rules });
+
+            let loginUser2 = await LoginUser.find()
+
             res.status(201);
             return res.send({
-                message: sails.__('User Logged Successfully'),
-                data: user
+                message: sails.__('User Logged In Successfully'),
+                data: loginUser2
+            });
+        } catch (error) {
+            return res.serverError(error);
+        }
+    },
+
+    // LOGOUT User
+    logout: async function (req, res) {
+        try {
+            const logoutUser = await LoginUser.find()
+
+            console.log(logoutUser)
+
+            if (logoutUser.error) {
+                return res.badRequest(user.error);
+            }
+
+            await LoginUser.update({ where: { id: logoutUser[0].id } }).set({ etat: 'OffLine'});
+
+            let logout = await LoginUser.find()
+
+            res.status(201);
+            return res.send({
+                message: sails.__('User Logged Out Successfully'),
+                data: logout
             });
         } catch (error) {
             return res.serverError(error);

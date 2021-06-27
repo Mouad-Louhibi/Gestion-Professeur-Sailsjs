@@ -24,6 +24,11 @@
 //     const ruleSuperUser = await Rule.find({ where: { nom: 'SUPER_USER' } });
 //     const defaultUser = await User.find({ where: { nom: 'Oumama' } });
 
+
+//     // Create Login User
+//     await LoginUser.create({ nom: '', prenom: '', email: '', etat: 'OffLine', rules: '' })
+
 //     // Add Rule To User
 //     await User.addToCollection(defaultUser[0].id, 'rules', ruleSuperUser[0].id)
+
 // };
