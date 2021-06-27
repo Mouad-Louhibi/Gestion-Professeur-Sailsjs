@@ -79,7 +79,7 @@ module.exports = {
                 return res.badRequest(user.error);
             }
 
-            await LoginUser.update({ where: { id: logoutUser[0].id } }).set({ etat: 'OffLine'});
+            await LoginUser.update({ where: { id: logoutUser[0].id } }).set({ etat: 'OffLine' });
 
             let logout = await LoginUser.find()
 
@@ -92,5 +92,20 @@ module.exports = {
             return res.serverError(error);
         }
     },
+
+    // GET Currnet
+    get: async function (req, res) {
+        try {
+            const currentUser = await LoginUser.find()
+
+            if (currentUser.error) {
+                return res.badRequest(currentUser.error)
+            }
+
+            return res.send(currentUser[0])
+        } catch (error) {
+            return res.serverError(error)
+        }
+    }
 };
 
