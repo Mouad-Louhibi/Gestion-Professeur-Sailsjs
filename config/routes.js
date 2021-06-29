@@ -25,4 +25,14 @@ module.exports.routes = {
     'POST /user/login': 'UserController.login',
     'GET /user/logout': 'UserController.logout',
     'GET /user/current': 'UserController.get',
+
+    // Project
+    'POST /project': 'ProjectController.create',
+    'GET /project': 'ProjectController.list',
+    'PATCH /project/:id': 'ProjectController.update',
+
+    // Competance
+    'POST /competance': 'CompetanceController.create',
+    'GET /competance': 'CompetanceController.list',
+    'PATCH /competance/:id': 'CompetanceController.delete',
 };

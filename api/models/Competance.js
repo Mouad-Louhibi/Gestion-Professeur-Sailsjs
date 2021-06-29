@@ -1,5 +1,5 @@
 /**
- * Professeurs.js
+ * Competance.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -7,16 +7,14 @@
 
 module.exports = {
 
-  attributes: {
-    nom: {
-      type: 'string'
+    attributes: {
+        nom: {
+            type: 'string'
+        },
+        description: {
+            type: 'string'
+        },
     },
-    prenom: {
-      type: 'string'
-    },
-    etat: {
-      type: 'string'
-    }
-  },
+
 };
 

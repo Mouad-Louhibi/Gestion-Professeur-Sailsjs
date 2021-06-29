@@ -23,8 +23,8 @@ module.exports = {
             return res.serverError(error);
         }
     },
-  
-    // GET ProfesseurS
+
+    // GET Professeurs
     list: async function (req, res) {
         try {
             const profs = await Professeur.find();
@@ -37,7 +37,7 @@ module.exports = {
     },
 
     // PATCH Professeur
-    update: async function(req, res) {
+    update: async function (req, res) {
         const { nom, prenom, etat } = req.allParams();
         const id = req.param('id')
         try {
@@ -59,7 +59,7 @@ module.exports = {
     },
 
     // DELETE Professeur
-    delete: async function(req, res) {
+    delete: async function (req, res) {
         const id = req.param('id')
         const profObj = await Professeur.findOne({ id: id })
         if (!profObj) {
