@@ -13,7 +13,9 @@ module.exports = {
             let user = await User.create({ nom, prenom, email, password }).fetch();
 
             if (user.error) {
-                return res.badRequest(user.error);
+                return res.send({
+                    message: sails.__('Bad Request'),
+                });
             }
 
             const ruleUser = await Rule.find({ where: { nom: 'USER' } });
@@ -25,7 +27,9 @@ module.exports = {
                 data: user
             });
         } catch (error) {
-            return res.serverError(error);
+            return res.send({
+                message: sails.__('Server Error'),
+            })
         }
     },
 
@@ -36,7 +40,9 @@ module.exports = {
             let user = await User.find({ where: { email: email } }).populate('rules');
 
             if (user.error) {
-                return res.badRequest(user.error);
+                return res.send({
+                    message: sails.__('Bad Request'),
+                });
             }
 
             if (user[0].password !== password) {
@@ -64,7 +70,9 @@ module.exports = {
                 data: loginUser2
             });
         } catch (error) {
-            return res.serverError(error);
+            return res.send({
+                message: sails.__('Server Error'),
+            })
         }
     },
 
@@ -76,7 +84,9 @@ module.exports = {
             console.log(logoutUser)
 
             if (logoutUser.error) {
-                return res.badRequest(user.error);
+                return res.send({
+                    message: sails.__('Bad Request'),
+                });
             }
 
             await LoginUser.update({ where: { id: logoutUser[0].id } }).set({ etat: 'OffLine' });
@@ -89,7 +99,9 @@ module.exports = {
                 data: logout
             });
         } catch (error) {
-            return res.serverError(error);
+            return res.send({
+                message: sails.__('Server Error'),
+            })
         }
     },
 
