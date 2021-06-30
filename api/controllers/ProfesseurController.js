@@ -12,7 +12,9 @@ module.exports = {
         try {
             let prof = await Professeur.create({ nom, prenom, etat, competance }).fetch();
             if (prof.error) {
-                return res.badRequest(prof.error);
+                return res.send({
+                    message: sails.__('Bad Request'),
+                });
             }
             res.status(201);
             return res.send({
@@ -20,7 +22,9 @@ module.exports = {
                 data: prof
             });
         } catch (error) {
-            return res.serverError(error);
+            return res.send({
+                message: sails.__('Server Error'),
+            })
         }
     },
 
@@ -30,9 +34,9 @@ module.exports = {
             const profs = await Professeur.find();
             return res.send(profs)
         } catch (error) {
-            console.log(error)
-            sails.log.warn(error);
-            return { error };
+            return res.send({
+                message: sails.__('Server Error'),
+            })
         }
     },
 
@@ -45,7 +49,9 @@ module.exports = {
 
             sails.log.info(profObj);
             if (profObj.error) {
-                return res.badRequest(profObj.error);
+                return res.send({
+                    message: sails.__('Bad Request'),
+                });
             }
             res.status(201);
             return res.send({
@@ -53,8 +59,9 @@ module.exports = {
                 data: profObj.data
             });
         } catch (error) {
-            res.status(500);
-            return res.serverError(error);
+            return res.send({
+                message: sails.__('Server Error'),
+            })
         }
     },
 
@@ -63,17 +70,23 @@ module.exports = {
         const id = req.param('id')
         const profObj = await Professeur.findOne({ id: id })
         if (!profObj) {
-            return res.send({ message: sails.__("professeur Not Found") });
+            return res.send({
+                message: sails.__("professeur Not Found")
+            });
         }
         try {
             let profResource = await Professeur.destroyOne({ id: id });
             if (profResource.error) {
-                return res.badRequest(profResource.error);
+                return res.send({
+                    message: sails.__('Bad Request'),
+                });
             }
             res.status(203);
             return res.send({ message: sails.__('Professeur Deleted Successfully') });
         } catch (error) {
-            return res.serverError(error);
+            return res.send({
+                message: sails.__('Server Error'),
+            })
         }
     },
 };
