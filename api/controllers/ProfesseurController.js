@@ -42,10 +42,10 @@ module.exports = {
 
     // PATCH Professeur
     update: async function (req, res) {
-        const { nom, prenom, etat } = req.allParams();
+        const { nom, prenom, etat, competance } = req.allParams();
         const id = req.param('id')
         try {
-            let profObj = await Professeur.updateOne({ id: id }).set({ nom, prenom, etat });
+            let profObj = await Professeur.updateOne({ id: id }).set({ nom, prenom, etat, competance });
 
             sails.log.info(profObj);
             if (profObj.error) {

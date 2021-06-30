@@ -44,6 +44,9 @@ module.exports = {
     update: async function (req, res) {
         const { archive } = req.allParams();
         const id = req.param('id')
+        if (archive == 'true'){
+            archive = true
+        }
         try {
             let project = await Project.updateOne({ id: id }).set({ archive });
 
