@@ -16,6 +16,9 @@ module.exports = {
     },
     etat: {
       type: 'string'
+    },
+    competance: {
+      type: 'string'
     }
   },
 };

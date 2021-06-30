@@ -8,9 +8,9 @@
 module.exports = {
     // POST Professeur
     create: async function (req, res) {
-        const { nom, prenom, etat } = req.allParams();
+        const { nom, prenom, etat, competance } = req.allParams();
         try {
-            let prof = await Professeur.create({ nom, prenom, etat }).fetch();
+            let prof = await Professeur.create({ nom, prenom, etat, competance }).fetch();
             if (prof.error) {
                 return res.badRequest(prof.error);
             }

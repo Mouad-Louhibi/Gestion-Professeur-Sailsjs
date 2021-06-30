@@ -12,7 +12,9 @@ module.exports = {
         try {
             let project = await Project.create({ sujet, description, chef, prof }).fetch();
             if (project.error) {
-                return res.badRequest(project.error);
+                return res.send({
+                    message: sails.__('Bad Request'),
+                });
             }
             res.status(201);
             return res.send({
@@ -20,7 +22,9 @@ module.exports = {
                 data: project
             });
         } catch (error) {
-            return res.serverError(error);
+            return res.send({
+                message: sails.__('Server Error'),
+            })
         }
     },
 
@@ -45,7 +49,9 @@ module.exports = {
 
             sails.log.info(project);
             if (project.error) {
-                return res.badRequest(project.error);
+                return res.send({
+                    message: sails.__('Bad Request'),
+                });
             }
             res.status(201);
             return res.send({
@@ -53,8 +59,9 @@ module.exports = {
                 data: project.data
             });
         } catch (error) {
-            res.status(500);
-            return res.serverError(error);
+            return res.send({
+                message: sails.__('Server Error'),
+            })
         }
     },
 };
