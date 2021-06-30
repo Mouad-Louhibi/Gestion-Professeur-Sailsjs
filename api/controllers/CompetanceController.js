@@ -12,7 +12,9 @@ module.exports = {
         try {
             let comp = await Competance.create({ nom, description }).fetch();
             if (comp.error) {
-                return res.badRequest(comp.error);
+                return res.send({
+                    message: sails.__('Bad Request'),
+                });
             }
             res.status(201);
             return res.send({
@@ -20,7 +22,9 @@ module.exports = {
                 data: comp
             });
         } catch (error) {
-            return res.serverError(error);
+            return res.send({
+                message: sails.__('Server Error'),
+            })
         }
     },
 
